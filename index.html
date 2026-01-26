@@ -1,23 +1,320 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <!-- Schema.org LocalBusiness 마크업(JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "영통 인테리어 전문 서비스",
+    "image": "https://도메인/로고.png",
+    "url": "https://도메인/yeongtong-interior",
+    "telephone": "031-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "경기도 수원시 영통구 ○○로 ○○",
+      "addressLocality": "수원시 영통구",
+      "addressRegion": "경기",
+      "postalCode": "16700",
+      "addressCountry": "KR"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "수원시 영통구" },
+      { "@type": "City", "name": "용인시 수지구" }
+    ],
+    "priceRange": "₩₩₩₩",
+    "description": "수원 영통구 및 인근 지역 아파트, 주택 인테리어 전문. 2026년 최신 트렌드를 반영한 맞춤형 리모델링 컨설팅 및 시공 서비스 제공."
+  }
+  </script>
+
+  <!-- Google Fonts for professional look -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset and Core Styling */
+    body { font-family: 'Noto Sans KR', sans-serif; margin:0; padding:0; background:#f5f7fa; color:#333; line-height:1.7; }
+    header { background:#ffffff; padding:40px 20px; text-align:center; box-shadow:0 4px 12px rgba(0,0,0,0.05); }
+    section { max-width:960px; margin:20px auto; padding:30px; background:#ffffff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); }
+    nav { max-width:960px; margin:20px auto; text-align:center; }
+    footer { text-align:center; padding:20px; font-size:0.9rem; color:#777; border-top:1px solid #ddd; margin-top:40px; }
+
+    /* Typography and Hierarchy */
+    h1 { font-size:2.8rem; color:#2c3e50; font-weight:700; margin-bottom:10px; }
+    h2 { font-size:2.2rem; color:#0b3d91; border-bottom:3px solid #e1eafc; padding-bottom:10px; margin-top:30px; margin-bottom:20px; font-weight:600; }
+    h3 { font-size:1.6rem; color:#34495e; margin-top:25px; margin-bottom:15px; font-weight:500; }
+    p, li { font-size:1.1rem; color:#4a4a4a; }
+    strong { color:#0b3d91; font-weight:700; }
+
+    /* Navigation Styling */
+    nav ul { list-style:none; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+    nav ul li a { display:inline-block; padding:10px 18px; background:#a3c4ff; color:#fff; font-weight:500; border-radius:8px; transition:background-color 0.3s ease; text-decoration:none; font-size:0.95rem; }
+    nav ul li a:hover { background:#0b3d91; }
+
+    /* Section Specific Styling */
+    .anchor { display:block; position:relative; top:-100px; visibility:hidden; }
+    .highlight-box { background:#f9f9f9; padding:20px; border-radius:8px; border-left:4px solid #4285f4; margin-bottom:20px; }
+    .external-links ul { list-style-type:none; padding-left:0; }
+    .external-links ul li { margin-bottom:8px; }
+    .external-links ul li a { color:#0b3d91; text-decoration:underline; font-weight:500; }
+
+    /* Table Styling */
+    table { width:100%; border-collapse: collapse; margin:25px 0; border:1px solid #ddd; }
+    th, td { border:1px solid #e1eafc; padding:15px; text-align:center; font-size:1rem; }
+    th { background:#e1eafc; color:#34495e; font-weight:600; vertical-align:middle; }
+    td { background:#ffffff; }
+
+    /* Form Styling */
+    form { background:#f9f9f9; padding:30px; border-radius:12px; border:1px solid #e1eafc; max-width:600px; margin:auto; }
+    label { display:block; margin-bottom:8px; font-weight:500; color:#333; }
+    input[type="text"], input[type="tel"], select, textarea { width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box; font-size:1rem; }
+    textarea { resize:vertical; }
+
+    /* CTA Button Styling */
+    .btn-cta {
+      display:inline-block;
+      padding:16px 32px;
+      background:#4285f4;
+      color:#fff;
+      font-weight:700;
+      border:none;
+      border-radius:30px;
+      box-shadow:0 6px 10px rgba(66, 133, 244, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor:pointer;
+      text-decoration:none;
+      text-align:center;
+      font-size:1.1rem;
+      margin-top:20px;
+    }
+    .btn-cta:hover { background:#3367d6; transform:translateY(-2px); }
+
+    /* Responsive Design */
+    @media(max-width:768px) {
+      section { padding:20px; }
+      h1 { font-size:2.2rem; }
+      h2 { font-size:1.8rem; }
+      nav ul { flex-direction:column; gap:8px; }
+      nav ul li a { width:100%; }
+      table, th, td { display:block; width:100%; box-sizing:border-box; }
+      th { text-align:left; background:#e1eafc; border-bottom:none; }
+      td { border-top:none; }
+      tr { margin-bottom:10px; display:block; border:1px solid #ddd; border-radius:8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>수원 영통 인테리어 전문 업체 추천 및 2026년 견적 가이드</h1>
+    <p>오래된 구축 아파트 리모델링부터 신축 맞춤 디자인까지, 영통 인테리어 비용 절감 노하우와 전문가 추천 업체 정보</p>
+    <a class="btn-cta" href="#contact">지금 바로 무료 견적 상담 신청하기</a>
+  </header>
+
+  <nav aria-label="페이지 내 이동">
+    <ul>
+      <li><a href="#introduction">영통 인테리어 가이드</a></li>
+      <li><a href="#local-keywords">지역별 추천 키워드</a></li>
+      <li><a href="#pricing">2026년 인테리어 비용 분석</a></li>
+      <li><a href="#process">성공적인 리모델링 프로세스</a></li>
+      <li><a href="#checklist">필수 체크리스트</a></li>
+      <li><a href="#faq">자주 묻는 질문 (FAQ)</a></li>
+      <li><a href="#contact">무료 견적 상담</a></li>
+    </ul>
+  </nav>
+
+  <section id="introduction">
+    <span id="introduction-anchor" class="anchor"></span>
+    <h2>영통 인테리어, 왜 지금 시작해야 할까요?</h2>
+    <p>수원 영통구는 1990년대부터 2000년대 초반에 지어진 아파트 단지가 많아 노후화된 주거 공간이 상당수를 차지하고 있습니다. 2026년 현재, 단순히 노후된 부분을 수리하는 것을 넘어 거주자의 라이프스타일과 최신 트렌드를 반영한 인테리어에 대한 수요가 급증하고 있습니다. 특히 영통구 주민들은 주거 만족도를 높이고 자산 가치 상승까지 고려하여 리모델링을 진행하는 경우가 많습니다. 저희는 영통 지역의 아파트 구조에 대한 높은 이해도를 바탕으로, 고객님의 예산에 맞는 최적의 <strong>영통 인테리어</strong> 솔루션을 제공합니다.</p>
+    <div class="highlight-box">
+      <h3>영통 아파트 리모델링의 주요 키워드:</h3>
+      <ul>
+        <li><strong>단열 및 방음 강화:</strong> 오래된 창호 교체와 벽면 단열재 보강은 영통 구축 아파트 인테리어 시 필수적인 항목입니다. 에너지 효율 개선과 주거 쾌적성 향상을 위해 초기 비용이 들더라도 반드시 고려해야 할 부분입니다.</li>
+        <li><strong>공간 효율성 극대화:</strong> 20평대, 30평대 아파트의 경우 발코니 확장을 통해 실사용 면적을 넓히거나, 가벽 설치 및 철거를 통해 공간을 재구성하는 사례가 많습니다.</li>
+        <li><strong>최신 트렌드 반영:</strong> 미드센추리 모던(Mid-century Modern), 플랜테리어(Plant Interior), 미니멀리즘(Minimalism) 등 다양한 인테리어 컨셉을 적용하여 주거 공간의 가치를 높입니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="local-keywords">
+    <span id="local-keywords-anchor" class="anchor"></span>
+    <h2>영통구 지역별 인테리어 키워드 분석 (30개 이상)</h2>
+    <p>영통구 내에서도 지역별, 아파트 단지별로 선호하는 인테리어 스타일과 필요한 공사 범위가 다릅니다. 저희는 <strong>매탄동 인테리어</strong>, <strong>망포동 인테리어</strong>, <strong>영통동 인테리어</strong> 등 각 지역 특성에 맞춘 맞춤형 컨설팅을 제공하며, 고객님들께서 검색하시는 다양한 키워드를 분석하여 성공적인 리모델링을 돕습니다.</p>
+    <ul>
+      <li><strong>매탄동 인테리어:</strong> 매탄 주공 4단지(매탄 위브 하늘채), 매탄 현대아파트, 매탄 성일아파트 등 1980~1990년대 구축 아파트 밀집 지역으로, <strong>매탄동 리모델링</strong> 시 창호, 단열, 배관 교체 등이 핵심입니다. <strong>매탄동 20평대 인테리어</strong>, <strong>매탄동 30평대 인테리어 비용</strong> 문의가 많으며, 특히 <strong>매탄 위브 하늘채 인테리어 후기</strong>를 참고하여 진행하는 경우가 많습니다.</li>
+      <li><strong>망포동 인테리어:</strong> 망포역 주변의 힐스테이트 영통, 래미안 영통 마크원, 망포마을 등 비교적 신축 아파트와 구축이 혼재된 지역입니다. <strong>망포동 인테리어 추천</strong> 검색 시, <strong>영통 아이파크 캐슬</strong> 입주 시 진행하는 <strong>마이너스 옵션 인테리어</strong>나 <strong>부분 인테리어</strong>에 대한 문의가 주를 이룹니다.</li>
+      <li><strong>영통동 인테리어:</strong> 영통역을 중심으로 한 황골마을, 살구골마을, 청명마을 등 대규모 단지들이 위치합니다. <strong>영통동 인테리어 비용</strong> 검색 시, <strong>영통 푸르지오 인테리어</strong> 사례나 <strong>영통 살구골마을 인테리어</strong> 사례를 통해 <strong>수원 인테리어 업체 순위</strong>를 비교하는 고객이 많습니다.</li>
+      <li><strong>원천동 인테리어:</strong> 원천주공 아파트와 광교호수공원 주변 신축 아파트가 공존하는 지역입니다. <strong>원천동 인테리어 잘하는 곳</strong>을 찾을 때, <strong>발코니 확장 공사</strong> 및 <strong>거실 인테리어</strong>에 대한 전문성을 중요하게 봅니다.</li>
+      <li><strong>태장동 인테리어:</strong> 망포역 인근의 태장동 아파트 단지들은 <strong>태장동 인테리어 추천</strong> 키워드로 검색이 많습니다. 특히 <strong>영통 아이파크 캐슬</strong>과 같은 신규 입주 단지는 <strong>입주 전 인테리어</strong> 수요가 높습니다.</li>
+      <li><strong>하동 인테리어:</strong> 광교신도시 인근 지역으로, <strong>하동 아파트 인테리어</strong> 시 고급스러운 마감재나 스마트홈 인테리어 도입에 관심이 많습니다.</li>
+      <li><strong>이의동 인테리어:</strong> 광교신도시 중심부로 <strong>광교 이의동 인테리어</strong>는 상대적으로 높은 예산을 책정하여 <strong>고급 인테리어</strong>나 <strong>전원주택 인테리어</strong>를 찾는 경우가 많습니다.</li>
+    </ul>
+    <h3>자동완성 및 연관 키워드 분석 (Naver 검색 기준)</h3>
+    <p>네이버 검색 시 <strong>영통 인테리어</strong>와 함께 많이 찾는 키워드는 다음과 같습니다: <strong>수원 인테리어</strong>, <strong>수원 인테리어 잘하는 곳</strong>, <strong>인테리어 견적 비교</strong>, <strong>인테리어 업체 순위</strong>, <strong>아파트 인테리어 비용 절약 팁</strong>, <strong>부분 인테리어 장점 단점</strong>, <strong>내돈내산 인테리어 후기</strong>, <strong>저렴한 인테리어 업체 싼곳</strong>, <strong>인테리어 시공사례</strong>, <strong>인테리어 가격표</strong>, <strong>20평대 인테리어 평균 비용</strong>, <strong>30평대 인테리어 예상 금액</strong>, <strong>싱크대 인테리어</strong>, <strong>욕실 인테리어</strong>, <strong>가구 배치</strong>, <strong>턴키 인테리어 장단점</strong>, <strong>반셀프 인테리어 차이점</strong>, <strong>아파트 리모델링 절차</strong>.</p>
+  </section>
+
+  <section id="pricing">
+    <span id="pricing-anchor" class="anchor"></span>
+    <h2>2026년 영통 인테리어 비용 분석 및 예상 견적</h2>
+    <p><strong>영통 인테리어 비용</strong>은 공사 범위, 아파트 면적, 선택 자재 등 여러 요인에 따라 크게 달라집니다. 특히 <strong>구축 아파트 인테리어</strong>의 경우 철거 및 배관 공사 비용이 추가되어 신축 아파트 인테리어보다 <strong>평균 비용</strong>이 높게 형성되는 경향이 있습니다. 아래 표는 2026년 영통 지역 아파트 인테리어의 <strong>예상 견적</strong>을 비교한 것입니다.</p>
+
+    <h3>아파트 면적별 인테리어 예상 견적 비교 (2026년 기준)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>면적 (공급면적)</th>
+          <th>부분 인테리어 (가성비)</th>
+          <th>전체 인테리어 (표준)</th>
+          <th>프리미엄 인테리어 (고급)</th>
+          <th>주요 공사 범위</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>20평대 아파트</strong><br />(예: 25평형)</td>
+          <td>₩1,500만 ~ ₩2,500만</td>
+          <td>₩2,500만 ~ ₩3,500만</td>
+          <td>₩3,500만 ~ ₩5,000만+</td>
+          <td>주방, 욕실, 도배/장판, 조명</td>
+        </tr>
+        <tr>
+          <td><strong>30평대 아파트</strong><br />(예: 34평형)</td>
+          <td>₩2,000만 ~ ₩3,500만</td>
+          <td>₩3,500만 ~ ₩5,000만</td>
+          <td>₩5,000만 ~ ₩7,000만+</td>
+          <td>창호, 단열, 주방, 욕실 전체, 거실 확장</td>
+        </tr>
+        <tr>
+          <td><strong>40평대 아파트</strong><br />(예: 45평형)</td>
+          <td>₩3,000만 ~ ₩4,500만</td>
+          <td>₩4,500만 ~ ₩7,000만</td>
+          <td>₩7,000만 ~ ₩1억+</td>
+          <td>전체 리모델링, 시스템 에어컨, 맞춤 가구 제작</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>인테리어 비용 구성 요소 상세 분석</h3>
+    <p><strong>인테리어 견적</strong>은 크게 인건비, 자재비, 부대 경비로 구성됩니다. 특히 영통구의 오래된 아파트들은 <strong>철거 비용</strong>과 <strong>단열 공사</strong>가 추가될 수 있습니다. <strong>저렴한곳</strong>을 찾기 위해 단순히 <strong>인테리어 업체 순위</strong>만 보지 마시고, <strong>내돈내산 후기</strong>를 참고하여 견적에 포함되는 항목을 꼼꼼히 확인해야 합니다.</p>
+    <ul>
+      <li><strong>자재비:</strong> 창호(KCC, LG, 현대), 바닥재(강마루, 포세린타일), 주방가구(싱크대, 아일랜드 식탁) 등 자재의 등급에 따라 비용 차이가 가장 크게 발생합니다. <strong>가성비 인테리어</strong>를 원한다면 합리적인 자재 선택이 중요합니다.</li>
+      <li><strong>인건비:</strong> 목공, 타일, 도배, 전기 등 각 공정별 전문가 인건비입니다. <strong>영통 인테리어</strong>는 현장 환경에 따라 작업 난이도가 달라질 수 있으므로, 현장 실측을 통한 정확한 <strong>예상 비용</strong> 산출이 필요합니다.</li>
+      <li><strong>부대 경비:</strong> 철거 및 폐기물 처리 비용, 사다리차 사용료, 인근 주민 동의를 위한 현수막 제작, 관리 사무소 예치금 등이 포함됩니다.</li>
+    </ul>
+  </section>
+
+  <section id="process">
+    <span id="process-anchor" class="anchor"></span>
+    <h2>성공적인 영통 아파트 인테리어 프로세스</h2>
+    <p>인테리어는 여러 공정이 복합적으로 얽혀 있어 전문적인 관리가 필요합니다. 특히 <strong>수원 인테리어</strong> 경험이 많은 업체를 선택해야 예상치 못한 변수를 줄일 수 있습니다. 다음은 저희가 제안하는 <strong>영통 아파트 리모델링</strong>의 표준 프로세스입니다.</p>
+
+    <div class="highlight-box">
+      <h3>1단계: 컨설팅 및 현장 실측 (디자인 & 컨셉 확정)</h3>
+      <p>고객의 예산, 원하는 <strong>인테리어 컨셉</strong> (미니멀, 모던, 클래식 등) 및 라이프스타일을 면밀히 파악합니다. <strong>영통 인테리어</strong> 현장 방문을 통해 아파트 구조, 노후도, 배관 상태, 창호 상태 등을 확인하고 정확한 <strong>인테리어 견적</strong>을 위한 실측을 진행합니다.</p>
+      <dl>
+        <dt><strong>주요 논의 사항:</strong></dt>
+        <dd><strong>① 공사 범위 설정:</strong> 턴키(전체) 인테리어, 반셀프 인테리어, 부분 인테리어 중 결정.</dd>
+        <dd><strong>② 예산 책정:</strong> 총 예산을 정하고 공정별 배분을 논의. <strong>인테리어 비용 절약 팁</strong>을 활용하여 불필요한 비용을 줄입니다.</dd>
+        <dd><strong>③ 디자인 컨셉:</strong> 고객이 원하는 스타일(ex: 화이트 우드, 그레이 톤 등)을 구체화합니다.</dd>
+      </dl>
+
+      <h3>2단계: 계약 및 상세 디자인</h3>
+      <p><strong>인테리어 계약서</strong> 작성 시 공사 범위, 기간, 비용, 하자 보수 등 세부 내용을 명확히 합니다. 공정거래위원회에서 권고하는 <strong>표준계약서</strong> 양식을 사용하는 것이 안전하며, 특히 <strong>하자 보수 기간</strong>과 관련된 내용을 꼼꼼히 확인해야 합니다. 상세 디자인 단계에서는 자재 샘플을 직접 보고, 3D 모델링을 통해 최종 디자인을 확정합니다.</p>
+
+      <h3>3단계: 시공 및 관리 (공정별 전문성)</h3>
+      <p><strong>① 철거 및 설비:</strong> <strong>영통 구축 아파트</strong>의 경우, <strong>창호 교체</strong> 및 <strong>배관 공사</strong>(난방 배관, 상하수도)가 필수적인 경우가 많습니다. <strong>단열 공사</strong>를 병행하여 난방비를 절감하고 쾌적한 실내 환경을 만듭니다. 이 과정에서 발생하는 폐기물 처리도 중요합니다.</p>
+      <p><strong>② 목공 및 전기:</strong> 천장 평탄화 작업, 몰딩 및 걸레받이 교체, 조명 및 스위치 위치 변경 등 인테리어의 기본 틀을 잡습니다. <strong>주방 인테리어</strong> 시 <strong>아일랜드 식탁</strong> 설치를 위한 전기 배선 작업이 포함됩니다.</p>
+      <p><strong>③ 마감 공사:</strong> 도배, 장판 또는 타일 시공, 가구 설치, 청소 및 입주 준비를 진행합니다. <strong>내돈내산 인테리어 후기</strong>를 보면 마감 품질을 꼼꼼히 체크하는 것이 중요합니다.</p>
+
+      <h3>4단계: 입주 및 하자 보수</h3>
+      <p>공사 완료 후 고객님과 함께 최종 점검을 진행합니다. <strong>인테리어 하자 보수</strong> 기간을 명시한 계약서에 따라 보수를 진행하며, 한국소비자원의 <strong>소비자 분쟁 해결 기준</strong>을 참고하여 분쟁을 예방합니다.</p>
+    </div>
+  </section>
+
+  <section id="checklist">
+    <span id="checklist-anchor" class="anchor"></span>
+    <h2>영통 인테리어 전 필수 체크리스트 (2026년)</h2>
+    <p>성공적인 인테리어는 철저한 사전 준비에서 시작됩니다. <strong>영통 인테리어 업체</strong>와 계약하기 전에 아래 체크리스트를 확인하세요.</p>
+    <ol>
+      <li><strong>자금 계획 및 예비비 확보:</strong> <strong>인테리어 비용</strong>은 <strong>예상 견적</strong>보다 10~20% 초과하는 경우가 많습니다. <strong>저렴한곳</strong>만 찾기보다는 <strong>평균 금액</strong>을 기준으로 예비비를 반드시 확보해야 합니다.</li>
+      <li><strong>아파트 관리 규정 확인:</strong> <strong>수원 인테리어</strong> 시 아파트 관리 사무소의 규정(공사 가능 시간, 소음 규제, 폐기물 처리 방법, 공사 동의서 및 신고 절차)을 반드시 준수해야 합니다.</li>
+      <li><strong>주차 및 접근성 확인:</strong> 공사 기간 중 자재 차량 및 인력 차량 주차 공간, 사다리차 사용 가능 여부 등을 미리 확인하여 <strong>인테리어 비용</strong>에 포함합니다.</li>
+      <li><strong>인테리어 업체 포트폴리오 확인:</strong> 해당 <strong>영통 아파트 단지</strong> 시공 경험이 있는지 확인하고, <strong>인테리어 업체 순위</strong>나 <strong>추천</strong>만 믿지 말고 실제 <strong>시공 사례</strong>를 꼼꼼히 살펴봅니다.</li>
+      <li><strong>계약서 세부 사항 확인:</strong> 공사 범위, 자재 목록, 기간, 추가 비용 발생 조건, 하자 보수 기간 및 범위 등을 명확히 합니다.</li>
+      <li><strong>주변 주민 동의:</strong> 공사 시작 전 인근 세대에 공사 안내문을 부착하고 양해를 구하는 과정이 필요합니다.</li>
+    </ol>
+    <a class="btn-cta" href="#contact">전문가와 체크리스트 점검하기</a>
+  </section>
+
+  <section id="faq">
+    <span id="faq-anchor" class="anchor"></span>
+    <h2>자주 묻는 질문 (FAQ)</h2>
+    <dl>
+      <dt>Q1: <strong>영통 구축 아파트</strong> 인테리어 시 <strong>가장 중요한 공사</strong>는 무엇인가요?</dt>
+      <dd>A: 노후된 <strong>영통 아파트</strong>의 경우, <strong>단열 공사</strong>와 <strong>창호 교체</strong>가 가장 중요합니다. 난방 효율을 높여 장기적으로 <strong>인테리어 비용</strong> 이상의 절감 효과를 볼 수 있습니다. <strong>배관 공사</strong>(난방, 상하수도)도 필수적으로 고려해야 합니다.</dd>
+      <dt>Q2: <strong>부분 인테리어</strong>와 <strong>전체 인테리어</strong>의 <strong>차이점</strong>은 무엇인가요?</dt>
+      <dd>A: <strong>부분 인테리어</strong>는 도배, 장판, 조명 등 비교적 간단한 공정만 진행하는 것입니다. <strong>전체 인테리어</strong>는 창호, 욕실, 주방, 베란다 확장 등 전체를 리모델링하는 것으로, <strong>인테리어 견적</strong>은 훨씬 높지만 주거 환경 개선 효과가 월등합니다. <strong>내돈내산 후기</strong>를 보면 구축 아파트는 전체 인테리어를 추천하는 경우가 많습니다.</dd>
+      <dt>Q3: <strong>영통 인테리어 비용</strong>을 절감할 수 있는 <strong>팁</strong>이 있을까요?</dt>
+      <dd>A: <strong>① 공사 범위 조정:</strong> 덜 노후된 부분(예: 문, 몰딩)은 페인트칠로 대체하고, 주방과 욕실 등 핵심 공간에 집중합니다. <strong>② 자재 선택:</strong> <strong>평균 금액</strong>대의 자재를 선택하고, 불필요한 디자인 요소를 줄입니다. <strong>③ 비수기 활용:</strong> <strong>인테리어 성수기</strong>(봄, 가을)를 피해 겨울이나 여름에 공사를 진행하면 <strong>저렴한곳</strong>을 찾거나 <strong>인테리어 비용</strong>을 절감할 수 있습니다.</dd>
+    </dl>
+  </section>
+
+  <section id="external-links" class="external-links">
+    <h2>인테리어 관련 신뢰성 있는 정보 (외부 사이트)</h2>
+    <p>인테리어는 큰 비용이 드는 만큼 공신력 있는 기관의 정보를 참고하여 피해를 예방하는 것이 중요합니다. 아래는 <strong>인테리어 분쟁 해결 기준</strong> 및 <strong>표준 계약서</strong> 등 유용한 정보를 얻을 수 있는 사이트입니다.</p>
+    <ul>
+      <li><a href="https://www.kca.go.kr/index.do" target="_blank">한국소비자원</a>: <strong>인테리어 분쟁 해결 기준</strong>, 소비자 피해 구제 사례, 피해 예방 정보 제공.</li>
+      <li><a href="https://www.ftc.go.kr/" target="_blank">공정거래위원회</a>: <strong>실내건축 표준계약서</strong> 등 각종 표준 약관 자료 제공.</li>
+      <li><a href="https://www.kcab.or.kr/" target="_blank">대한상사중재원</a>: <strong>인테리어 공사 표준계약서</strong> 및 분쟁 해결 가이드 제공.</li>
+      <li><a href="https://www.data.go.kr/" target="_blank">공공데이터포털</a>: 수원시 영통구 공동주택 현황 등 공공정보 확인.</li>
+      <li><a href="https://www.molit.go.kr/" target="_blank">국토교통부 실거래가 공개시스템</a>: 아파트 시세 및 건축물대장 정보 확인.</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <span id="contact-anchor" class="anchor"></span>
+    <h2>영통 인테리어 견적 상담 문의</h2>
+    <p><strong>영통 인테리어 추천</strong>은 고객님의 라이프스타일과 예산에 따라 달라집니다. 자세한 상담을 통해 <strong>내돈내산</strong>과 같은 만족스러운 결과를 얻을 수 있도록 도와드립니다. 아래 양식을 작성해 주시면 전문가가 신속하게 연락드리겠습니다.</p>
+    <form action="/submit" method="POST">
+      <label for="name">이름<span style="color:red;">*</span></label>
+      <input type="text" id="name" name="name" required placeholder="예: 홍길동" />
+
+      <label for="phone">연락처<span style="color:red;">*</span></label>
+      <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678" pattern="[0-9\-]+" />
+
+      <label for="move_in_address">인테리어 시공 주소 (예: 영통구 매탄동, 망포동 힐스테이트 영통)</label>
+      <input type="text" id="move_in_address" name="move_in_address" required placeholder="예: 수원시 영통구 매탄동 00아파트 00동 00호" />
+
+      <label for="apartment_size">아파트 면적 (예: 25평형, 34평형)</label>
+      <input type="text" id="apartment_size" name="apartment_size" placeholder="예: 34평형" />
+
+      <label for="build_year">건축 연도 (노후도 파악)</label>
+      <input type="text" id="build_year" name="build_year" placeholder="예: 2005년 (2026년 기준 21년차)" />
+
+      <label for="service_type">희망 인테리어 유형<span style="color:red;">*</span></label>
+      <select id="service_type" name="service_type" required>
+        <option value="">선택하세요</option>
+        <option value="전체 인테리어 (턴키)">전체 인테리어 (턴키)</option>
+        <option value="부분 인테리어 (주방/욕실)">부분 인테리어 (주방/욕실)</option>
+        <option value="단열/창호 교체">단열/창호 교체</option>
+        <option value="마이너스 옵션 인테리어">마이너스 옵션 인테리어</option>
+        <option value="반셀프 인테리어 컨설팅">반셀프 인테리어 컨설팅</option>
+        <option value="기타">기타</option>
+      </select>
+
+      <label for="budget_range">예상 인테리어 예산 범위</label>
+      <select id="budget_range" name="budget_range">
+        <option value="">선택하세요</option>
+        <option value="1천만원 미만">1천만원 미만</option>
+        <option value="1천만원~3천만원">1천만원~3천만원</option>
+        <option value="3천만원~5천만원">3천만원~5천만원</option>
+        <option value="5천만원 이상">5천만원 이상</option>
+      </select>
+
+      <label for="message">추가 요청 사항</label>
+      <textarea id="message" name="message" rows="5" placeholder="예: 공사 희망 날짜, 꼭 필요한 공사 항목, 인테리어 스타일 등"></textarea>
+
+      <button type="submit" class="btn-cta">무료 견적 문의하기</button>
+    </form>
+  </section>
+
+  
